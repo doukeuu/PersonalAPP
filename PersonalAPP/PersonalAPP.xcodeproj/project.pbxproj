@@ -14,6 +14,11 @@
 		3BA7B4A822BF1C570095FAFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA7B4A622BF1C570095FAFB /* LaunchScreen.storyboard */; };
 		3BA7B4B322BF1C570095FAFB /* PersonalAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7B4B222BF1C570095FAFB /* PersonalAPPTests.swift */; };
 		3BA7B4BE22BF1C570095FAFB /* PersonalAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7B4BD22BF1C570095FAFB /* PersonalAPPUITests.swift */; };
+		60B545D022C07CE700A09BFC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B545CF22C07CE700A09BFC /* BaseViewController.swift */; };
+		60B545D222C07D0A00A09BFC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B545D122C07D0A00A09BFC /* HomeViewController.swift */; };
+		60B545D422C07DC900A09BFC /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B545D322C07DC900A09BFC /* BaseNavigationController.swift */; };
+		60B545DA22C09AA700A09BFC /* MemoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B545D922C09AA700A09BFC /* MemoListController.swift */; };
+		60B545DC22C09AB900A09BFC /* MemoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B545DB22C09AB900A09BFC /* MemoDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		3BA7B4B922BF1C570095FAFB /* PersonalAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersonalAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA7B4BD22BF1C570095FAFB /* PersonalAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAPPUITests.swift; sourceTree = "<group>"; };
 		3BA7B4BF22BF1C570095FAFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60B545CF22C07CE700A09BFC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		60B545D122C07D0A00A09BFC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		60B545D322C07DC900A09BFC /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		60B545D922C09AA700A09BFC /* MemoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListController.swift; sourceTree = "<group>"; };
+		60B545DB22C09AB900A09BFC /* MemoDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +109,8 @@
 			children = (
 				3BA7B49D22BF1C550095FAFB /* AppDelegate.swift */,
 				3BA7B49F22BF1C550095FAFB /* ViewController.swift */,
+				60B545C722C070FA00A09BFC /* Module */,
+				60B545C822C078CF00A09BFC /* Utility */,
 				3BA7B4A122BF1C550095FAFB /* Main.storyboard */,
 				3BA7B4A422BF1C570095FAFB /* Assets.xcassets */,
 				3BA7B4A622BF1C570095FAFB /* LaunchScreen.storyboard */,
@@ -123,6 +135,97 @@
 				3BA7B4BF22BF1C570095FAFB /* Info.plist */,
 			);
 			path = PersonalAPPUITests;
+			sourceTree = "<group>";
+		};
+		60B545C722C070FA00A09BFC /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				60B545C922C0790200A09BFC /* Home */,
+				60B545D522C0995200A09BFC /* Memo */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		60B545C822C078CF00A09BFC /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				60B545CE22C07B8600A09BFC /* Base */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		60B545C922C0790200A09BFC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				60B545CD22C07AB400A09BFC /* Controller */,
+				60B545CC22C07AAD00A09BFC /* View */,
+				60B545CB22C07AA600A09BFC /* Model */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		60B545CB22C07AA600A09BFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		60B545CC22C07AAD00A09BFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		60B545CD22C07AB400A09BFC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				60B545D122C07D0A00A09BFC /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		60B545CE22C07B8600A09BFC /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				60B545CF22C07CE700A09BFC /* BaseViewController.swift */,
+				60B545D322C07DC900A09BFC /* BaseNavigationController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		60B545D522C0995200A09BFC /* Memo */ = {
+			isa = PBXGroup;
+			children = (
+				60B545D822C099B200A09BFC /* Controller */,
+				60B545D722C099A600A09BFC /* View */,
+				60B545D622C0999F00A09BFC /* Model */,
+			);
+			path = Memo;
+			sourceTree = "<group>";
+		};
+		60B545D622C0999F00A09BFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		60B545D722C099A600A09BFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		60B545D822C099B200A09BFC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				60B545D922C09AA700A09BFC /* MemoListController.swift */,
+				60B545DB22C09AB900A09BFC /* MemoDetailController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,13 +296,16 @@
 				TargetAttributes = {
 					3BA7B49922BF1C550095FAFB = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					3BA7B4AD22BF1C570095FAFB = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 3BA7B49922BF1C550095FAFB;
 					};
 					3BA7B4B822BF1C570095FAFB = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 3BA7B49922BF1C550095FAFB;
 					};
 				};
@@ -257,7 +363,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BA7B4A022BF1C550095FAFB /* ViewController.swift in Sources */,
+				60B545DA22C09AA700A09BFC /* MemoListController.swift in Sources */,
+				60B545DC22C09AB900A09BFC /* MemoDetailController.swift in Sources */,
 				3BA7B49E22BF1C550095FAFB /* AppDelegate.swift in Sources */,
+				60B545D022C07CE700A09BFC /* BaseViewController.swift in Sources */,
+				60B545D422C07DC900A09BFC /* BaseNavigationController.swift in Sources */,
+				60B545D222C07D0A00A09BFC /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +544,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8V5GV6V7T2;
 				INFOPLIST_FILE = PersonalAPP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -440,7 +552,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.pansir.PersonalAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -450,6 +562,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8V5GV6V7T2;
 				INFOPLIST_FILE = PersonalAPP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -457,7 +570,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.pansir.PersonalAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -476,7 +589,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.pansir.PersonalAPPTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PersonalAPP.app/PersonalAPP";
 			};
@@ -496,7 +609,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.pansir.PersonalAPPTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PersonalAPP.app/PersonalAPP";
 			};
@@ -515,7 +628,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.pansir.PersonalAPPUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PersonalAPP;
 			};
@@ -534,7 +647,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.pansir.PersonalAPPUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PersonalAPP;
 			};
