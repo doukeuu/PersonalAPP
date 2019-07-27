@@ -37,6 +37,7 @@ extension MemoDetailController {
         textView.font = UIFont.systemFont(ofSize: 16)
         textView.textColor = UIColor.darkGray
         textView.delegate = self
+        textView.autoresizingMask = .flexibleHeight
         self.view.addSubview(textView)
         
         timeButton = UIButton(type: .custom)
@@ -58,7 +59,7 @@ extension MemoDetailController: UIScrollViewDelegate {
         lastOffsetY = scrollView.contentOffset.y
     }
     
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let endOffsetY = scrollView.contentOffset.y
         if lastOffsetY < endOffsetY { // up
             scrollOrientation = 1
@@ -67,10 +68,17 @@ extension MemoDetailController: UIScrollViewDelegate {
         } else {
             scrollOrientation = 0
         }
+        lastOffsetY = scrollView.contentOffset.y
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if scrollOrientation == 1 {
-            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            scrollView.contentInset = UIEdgeInsets.zero
         } else if scrollOrientation == -1 {
             scrollView.contentInset = UIEdgeInsets(top: 25, left: 0, bottom: 0, right: 0)
+            if targetContentOffset.pointee.y < 2 {
+                targetContentOffset.pointee = CGPoint(x: 0, y: -25)
+            }
         }
     }
 }
