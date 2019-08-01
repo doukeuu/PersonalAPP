@@ -22,6 +22,7 @@ class MemoListController: BaseViewController {
 
 // MARK: - UI
 extension MemoListController {
+    
     private func generateSubview() {
         tableView = UITableView(frame: self.view.bounds, style: .plain)
         tableView.backgroundColor = UIColor.white
@@ -40,7 +41,7 @@ extension MemoListController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "kHomeCell")
         if cell == nil { cell = UITableViewCell(style: .default, reuseIdentifier: "kHomeCell") }
-        cell?.textLabel?.text = "列表"
+        cell?.textLabel?.text = "备忘录列表"
         return cell!
     }
 }
