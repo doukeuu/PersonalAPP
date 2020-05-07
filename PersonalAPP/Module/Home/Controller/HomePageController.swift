@@ -1,27 +1,28 @@
 //
-//  HomeViewController.swift
+//  HomePageController.swift
 //  PersonalAPP
 //
-//  Created by panwei on 2019/6/24.
+//  Created by PANSIR on 2019/11/23.
 //  Copyright © 2019 PANSIR. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+class HomePageController: BaseViewController {
 
     var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.title = "首页"
         generateSubview()
     }
-
+    
 }
 
 // MARK: - UI
-extension HomeViewController {
+extension HomePageController {
+    
     private func generateSubview() {
         tableView = UITableView(frame: self.view.bounds, style: .plain)
         tableView.backgroundColor = UIColor.white
@@ -31,7 +32,7 @@ extension HomeViewController {
     }
 }
 
-extension HomeViewController: UITableViewDataSource {
+extension HomePageController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
@@ -45,7 +46,7 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
-extension HomeViewController: UITableViewDelegate {
+extension HomePageController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {

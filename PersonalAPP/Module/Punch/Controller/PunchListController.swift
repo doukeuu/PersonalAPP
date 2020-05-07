@@ -14,9 +14,16 @@ class PunchListController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.title = "列表"
         generateSubview()
+        
+        
     }
+    
+    
+    
+    
+    
 }
 
 // MARK: - UI
@@ -48,6 +55,9 @@ extension PunchListController: UITableViewDataSource {
 extension PunchListController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(PunchHealthController(), animated: true)
+        let punchMonth = PunchMonthController()
+
+        
+        self.navigationController?.pushViewController(punchMonth, animated: true)
     }
 }

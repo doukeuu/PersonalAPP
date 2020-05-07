@@ -1,16 +1,16 @@
 //
-//  PunchHealthController.swift
+//  PunchYearController.swift
 //  PersonalAPP
 //
-//  Created by PANSIR on 2019/8/1.
+//  Created by PANSIR on 2019/9/7.
 //  Copyright © 2019 PANSIR. All rights reserved.
 //
 
 import UIKit
 
-class PunchHealthController: BaseViewController {
+class PunchYearController: BaseViewController {
 
-    private var headView: PunchHealthHeadView!    // head view
+    private var headView: PunchYearHeadView!    // head view
     private var collectionView: UICollectionView! // date collection view
     
     private let sectionNumber = 40
@@ -25,18 +25,18 @@ class PunchHealthController: BaseViewController {
 }
 
 // MARK: - Subview
-extension PunchHealthController {
+extension PunchYearController {
     
     private func generateSubview() {
         // head view
         let width = self.view.bounds.width
         var frame = CGRect(x: 0, y: 88, width: width, height: 140)
-        headView = PunchHealthHeadView(frame: frame)
+        headView = PunchYearHeadView(frame: frame)
         headView.countLabel.text = "2"
         self.view.addSubview(headView)
         
         // collection flow layout
-        let flowLayout = UICollectionViewFlowLayout() 
+        let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 1
         flowLayout.minimumLineSpacing = 1
         flowLayout.headerReferenceSize = CGSize(width: width, height: 50)
@@ -51,8 +51,8 @@ extension PunchHealthController {
         collectionView.delegate = self
         collectionView.decelerationRate = .normal
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.register(PunchHealthDateCell.self, forCellWithReuseIdentifier: "kHealthDateCell")
-        collectionView.register(PunchHealthSectionView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "kHealthDateView")
+        collectionView.register(PunchYearDateCell.self, forCellWithReuseIdentifier: "kDateCell")
+        collectionView.register(PunchYearDateView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "kDateView")
         self.view.insertSubview(collectionView, belowSubview: headView)
         collectionView.layoutIfNeeded()
     }
@@ -60,7 +60,7 @@ extension PunchHealthController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension PunchHealthController: UICollectionViewDataSource {
+extension PunchYearController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sectionNumber
@@ -71,32 +71,32 @@ extension PunchHealthController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "kHealthDateCell", for: indexPath) as! PunchHealthDateCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "kDateCell", for: indexPath) as! PunchYearDateCell
         cell.dateComponents = DateHandler.componentsWithMonthDeviation(deviation + indexPath.section)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "kHealthDateView", for: indexPath) as! PunchHealthSectionView
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "kDateView", for: indexPath) as! PunchYearDateView
         view.components = DateHandler.componentsWithMonthDeviation(deviation + indexPath.section)
         return view
     }
     
 }
 
-extension PunchHealthController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension PunchYearController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let components = DateHandler.componentsWithMonthDeviation(deviation  + indexPath.section)
-        let rowNumber = DateHandler.buttonWillHidden(with: components) ? 5 : 6
+        let rowNumber = DateHandler.labelShouldHidden(with: components) ? 5 : 6
         let width = self.view.bounds.size.width
         return CGSize(width: width, height: width / 7.0 * CGFloat(rowNumber))
     }
     
 }
 
-
-extension PunchHealthController: UIScrollViewDelegate {
+// UIScrollViewDelegate
+extension PunchYearController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentSection = sectionAtPoint(collectionView.contentOffset)
@@ -119,7 +119,7 @@ extension PunchHealthController: UIScrollViewDelegate {
 }
 
 // MARK: - Seek
-extension PunchHealthController {
+extension PunchYearController {
     
     private func resetColletionViewContentOffset() {
         let indexPath = IndexPath(item: 0, section: sectionNumber/2)

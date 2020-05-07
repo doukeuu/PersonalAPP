@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         
-        let home = HomeViewController()
+        let home = HomePageController()
         let navigation = BaseNavigationController(rootViewController: home)
         window?.rootViewController = navigation
         window?.makeKeyAndVisible()

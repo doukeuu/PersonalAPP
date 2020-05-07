@@ -10,6 +10,8 @@ import Foundation
 
 class DateHandler {
     
+    static let lineNumber = 6   // line number, a month need biggest lines
+    static let columnNumber = 7 // column number, a week
     static let todayComponents = Calendar.current.dateComponents(in: .current, from: Date())
     
     // the begin index at first day of each month
@@ -32,46 +34,45 @@ class DateHandler {
         return (year % 4  == 0 && year % 100 != 0) || (year % 400 == 0)
     }
     
-    public static func buttonWillHidden(with components: DateComponents) -> Bool {
+    public static func labelShouldHidden(with components: DateComponents) -> Bool {
         let begin = beginIndex(with: components)
         let days = monthDays(with: components)
-        return 42 - begin - days >= 7
+        return lineNumber * columnNumber - begin - days >= columnNumber
     }
     
     public static func componentsWithMonthDeviation(_ deviation: Int) -> DateComponents {
         let components = Calendar.current.dateComponents(in: TimeZone.current, from: Date())
-        var month = components.month
-        var year = components.year
+        var month = components.month!
+        var year = components.year!
+        let monthDeviation: Int = deviation % 12
+        var yearDeviation: Int = deviation / 12
         
-        var monthDeviation: Int, yearDeviation: Int
         if deviation > 0 {
-            monthDeviation = deviation % 12
-            yearDeviation = deviation / 12
-            if month! + monthDeviation > 12 {
-                month = month! + monthDeviation - 12
+            if month + monthDeviation > 12 {
+                month = month + monthDeviation - 12
                 yearDeviation += 1
             } else {
-                month = month! + monthDeviation
+                month = month + monthDeviation
             }
         } else {
-            monthDeviation = deviation % 12
-            yearDeviation = deviation / 12
-            if month! + monthDeviation < 0 {
-                month = month! + monthDeviation + 12
+            if month + monthDeviation < 0 {
+                month = month + monthDeviation + 12
                 yearDeviation -= 1
-            } else if month! + monthDeviation == 0 {
-                month = 1
+            } else if month + monthDeviation == 0 {
+                month = 12
+                yearDeviation -= 1
             } else {
-                month = month! + monthDeviation
+                month = month + monthDeviation
             }
         }
-        year = year! + yearDeviation
-        let dateString = String(format: "%d%02d01", year!, month!)
+        year = year + yearDeviation
+        let dateString = String(format: "%d%02d01", year, month)
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
         let date = formatter.date(from: dateString)
-        
         return Calendar.current.dateComponents(in: TimeZone.current, from: date!)
     }
+    
+    
     
 }

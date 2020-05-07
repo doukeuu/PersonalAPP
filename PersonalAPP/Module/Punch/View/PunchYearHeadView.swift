@@ -1,21 +1,20 @@
 //
-//  PunchHealthHeadView.swift
+//  PunchYearHeadView.swift
 //  PersonalAPP
 //
-//  Created by PANSIR on 2019/8/3.
+//  Created by PANSIR on 2019/9/7.
 //  Copyright © 2019 PANSIR. All rights reserved.
 //
 
 import UIKit
 
-class PunchHealthHeadView: UIView {
+class PunchYearHeadView: UIView {
 
     var countLabel: UILabel! // day count
     private var dayLabel: UILabel! // day
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         ownConfiguration()
         generateSubview()
     }
@@ -27,7 +26,7 @@ class PunchHealthHeadView: UIView {
 }
 
 // MARK: - Subview
-extension PunchHealthHeadView {
+extension PunchYearHeadView {
     
     // configuration itself
     private func ownConfiguration() {
@@ -79,7 +78,6 @@ extension PunchHealthHeadView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         let countW = countLabel.intrinsicContentSize.width
         let dayW = dayLabel.intrinsicContentSize.width
         let halfW = (countW + dayW) / 2
@@ -87,4 +85,5 @@ extension PunchHealthHeadView {
         countLabel.frame.size.width = countW
         dayLabel.frame.origin.x = countLabel.frame.maxX + 2
     }
+    
 }
